@@ -31,4 +31,7 @@ Route::middleware('role:teacher')->group(function () {
     Route::get('/teacher/apply', [TeacherController::class, 'apply'])->name('teacher.apply');
     Route::get('/teacher/apply', [TeacherController::class, 'showApplyForm'])->name('teacher.apply');
     Route::post('/teacher/upload', [TeacherController::class, 'uploadCV'])->name('teacher.upload');
+    
 });
+Route::get('/teacher/upload', [TeacherController::class, 'showUploadForm'])->name('teacher.upload.form');
+Route::post('/teacher/upload/store', [TeacherController::class, 'uploadLecture'])->name('teacher.upload.store');

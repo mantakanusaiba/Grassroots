@@ -57,6 +57,7 @@ class AuthController extends Controller
                 case 'admin':
                     return redirect('/dashboard/admin');
             }
+            return redirect('/dashboard/student')->with('user', $user[0]); 
         }
 
         return back()->withErrors(['email' => 'Invalid email or password']);

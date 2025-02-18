@@ -11,6 +11,7 @@ class Student extends Model
 
     protected $table = 'students'; 
 
+   
     protected $fillable = [
         'student_id',
         'first_name',
@@ -20,6 +21,7 @@ class Student extends Model
         'class_role',
         'student_group', 
         'phone',
+        
     ];
 
     public $timestamps = true; 

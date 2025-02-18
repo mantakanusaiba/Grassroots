@@ -25,6 +25,13 @@ class StudentController extends Controller
         return view('student.assignment');
     }
 
+    public function profile()
+{
+    $user = session('user'); 
+    return view('student.profile', compact('user'));
+}
+
+
     
     public function store(Request $request)
     {
@@ -52,6 +59,9 @@ class StudentController extends Controller
             'phone' => $request->phone,
         ]);
 
-        return redirect()->route('student.admission')->with('success', 'Student registered successfully.');
+       
+
+       
+        return redirect()->route('student.dashboard')->with('success', 'Student added successfully!');
     }
 }

@@ -20,16 +20,28 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            position: relative;
         }
 
-        header .dashboard-icon {
+        .dashboard-icon {
+            position: absolute;
+            left: 20px;
             cursor: pointer;
             font-size: 20px;
         }
 
-        .dashboard-container {
+        .icons {
             display: flex;
-            margin: 20px;
+            align-items: center;
+            gap: 20px;
+            position: absolute;
+            right: 20px;
+        }
+
+        .profile-icon {
+            cursor: pointer;
+            font-size: 20px;
+            color: white; 
         }
 
         .sidebar {
@@ -48,27 +60,25 @@
         .sidebar .menu {
             list-style: none;
             padding: 0;
+            margin-top: 30px;
         }
 
         .sidebar .menu li {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
+            margin-bottom: 15px;
         }
 
         .sidebar .menu li a {
             color: #fff;
             text-decoration: none;
+            padding: 10px;
+            border-radius: 4px;
             display: flex;
             align-items: center;
-            padding: 8px;
-            border-radius: 4px;
-            width: 100%;
         }
 
         .sidebar .menu li a.active {
-            font-weight: bold;
             background-color: #17a2b8;
+            font-weight: bold;
         }
 
         .sidebar .menu li a:hover {
@@ -77,7 +87,6 @@
 
         .sidebar .menu li i {
             margin-right: 10px;
-            font-size: 18px;
         }
 
         .content {
@@ -102,8 +111,14 @@
 </head>
 <body>
     <header>
-        <h1>Student Dashboard</h1>
         <i class="fas fa-bars dashboard-icon" onclick="toggleSidebar()"></i>
+        <h1 style="margin-left: 60px;">Student Dashboard</h1>
+        <div class="icons">
+            
+            <a href="{{ route('student.profile') }}">
+                <i class="fas fa-user profile-icon" style="cursor: pointer; font-size: 20px;"></i>
+            </a>
+        </div>
     </header>
 
     <div class="dashboard-container">
@@ -113,7 +128,7 @@
                 <li><a href="{{ route('student.admission') }}"><i class="fas fa-user-plus"></i>Admission</a></li>
                 <li><a href="{{ route('student.lecture') }}"><i class="fas fa-book"></i>Lecture</a></li>
                 <li><a href="{{ route('student.assignment') }}"><i class="fas fa-tasks"></i>Assignment</a></li>
-                <li><a href="{{ route('logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+                
             </ul>
         </div>
         <div class="content">

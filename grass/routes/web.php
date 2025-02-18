@@ -30,7 +30,12 @@ Route::middleware('role:teacher')->group(function () {
     Route::get('/teacher/lectures', [TeacherController::class, 'viewLectures'])->name('teacher.lectures');
     Route::get('/teacher/apply', [TeacherController::class, 'showApplyForm'])->name('teacher.apply');
     Route::post('/teacher/upload', [TeacherController::class, 'uploadCV'])->name('teacher.upload');
+    
 });
+
+Route::get('/teacher/upload', [TeacherController::class, 'showUploadForm'])->name('teacher.upload.form');
+Route::post('/teacher/upload/store', [TeacherController::class, 'uploadLecture'])->name('teacher.upload.store');
+=======
 
 // Student-related routes
 Route::middleware('role:student')->group(function () {
@@ -46,3 +51,4 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
     Route::post('/profile/upload', [ProfileController::class, 'uploadImage'])->name('profile.upload');
 });
+
